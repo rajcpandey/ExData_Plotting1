@@ -1,7 +1,7 @@
 # File Name         plot2.R
 # Developed by      Raj Kumar Pandey
 # Date              20/06/2020
-# Assignment        Plotting Assignment 1 for Exploratory Data Analysis  
+# Assignment        Plotting Assignment 1 for Exploratory Data Analysis 
 #-------------------------------------------------------------------------------------------------------------------------------
 # Loading required packages and libraries
   
