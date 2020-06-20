@@ -1,7 +1,7 @@
-# File Name         plot2.R
+# File Name         plot3.R
 # Developed by      Raj Kumar Pandey
 # Date              20/06/2020
-# Assignment        Plotting Assignment 1 for Exploratory Data Analysis 
+# Assignment        Plotting Assignment 1 for Exploratory Data Analysis  
 #-------------------------------------------------------------------------------------------------------------------------------
 # Loading required packages and libraries
   
@@ -30,12 +30,12 @@ loadData <- loadData %>%  mutate(Date = as.Date(Date, format = "%d/%m/%Y"))
 loadData <- loadData %>%  mutate(Date=paste(Date, Time) %>% as.POSIXct(., format="%Y-%m-%d %H:%M"))
 
 # Define device, set characteristics and plot
-png("plot2.png", 480, 480)
+png("plot3.png", 480, 480)
 
 plot(loadData$Date,loadData$Sub_metering_1, type = "l", ylab = "Energy sub Metering", xlab = "")
 lines(loadData$Date,loadData$Sub_metering_2, type = "l", col = "red")
 lines(loadData$Date,loadData$Sub_metering_3, type = "l", col = "blue")
-legend(legend = loadData$Sub_metering_1)
+legend("topright",legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black","red","blue"), lty = 1, lwd = 1, cex = 1)
 
 
 # set the device off and back to the default screen device
