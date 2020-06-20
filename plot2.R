@@ -1,4 +1,4 @@
-# File Name         plot1.R
+# File Name         plot2.R
 # Developed by      Raj Kumar Pandey
 # Date              20/06/2020
 # Assignment        Plotting Assignment 1 for Exploratory Data Analysis
@@ -7,8 +7,10 @@
   
 #install.packages(sqldf)
 #install.packages("tidyverse")
+install.packages("lubridate")
 library(sqldf)
 library(tidyverse)
+library(lubridate)
 
   
 # convert file to csv format so that we can use it with read.csv.sql function and only select the rows we want
@@ -24,13 +26,13 @@ loadData <- read.csv2.sql("household_power_consumption.csv", sql = "select * fro
 
 
 #Convert the date and time from character to proper date and time
+loadData <- loadData %>%  mutate(Date = as.Date(Date, format = "%d/%m/%Y"))
 loadData <- loadData %>%  mutate(Date=paste(Date, Time) %>% as.POSIXct(., format="%Y-%m-%d %H:%M"))
 
-
 # Define device, set characteristics and plot
-png("plot1.png", 480, 480)
+png("plot2.png", 480, 480)
 
-hist(loadData$Global_active_power, col = "red", xlab = "Global Active Power (kilowatts)", main = "Global Active Power")
+plot(loadData$Date,loadData$Global_active_power, type = "l", ylab = "Global Active Power (Kilowatts)", xlab = "")
 
 # set the device off and back to the default screen device
 dev.off()
